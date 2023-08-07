@@ -1,12 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
+import Sidebar from './Components/Sidebar/Sidebar';
 import Navbar from './Components/Navbar/Navbar';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useState } from 'react';
+import Dashboard from './Components/Dashboard/Dashboard';
+import Trade from './Components/Trade/Trade';
+
 function App() {
+  const [drawer, setDrawer] = useState(false)
+
   return (
     <BrowserRouter>
     <div className="App">
-      <Navbar/>
+      <Navbar drawer={drawer} setDrawer={setDrawer} />
+      <Sidebar drawer={drawer} setDrawer={setDrawer} />
+    <div className='container'>
+      {/* <Dashboard /> */}
+      <Trade />
+    </div>
     </div>
     </BrowserRouter>
     

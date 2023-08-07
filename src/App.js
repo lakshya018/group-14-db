@@ -1,5 +1,5 @@
 import './App.css';
-import Sidebar from './Components/Sidebar/Sidebar';
+// import Sidebar from './Components/Sidebar/Sidebar';
 import Navbar from './Components/Navbar/Navbar';
 import { BrowserRouter } from 'react-router-dom';
 import { useState } from 'react';
@@ -7,7 +7,7 @@ import { useState } from 'react';
 import Trade from './Components/Trade/Trade';
 
 function App() {
-  const [drawer, setDrawer] = useState(false)
+  // const [drawer, setDrawer] = useState(false)
 
   return (
     <BrowserRouter>

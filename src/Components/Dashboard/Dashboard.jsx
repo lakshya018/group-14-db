@@ -1,76 +1,83 @@
-import { Grid, Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material'
+import { Box, Grid, Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material'
 import { BarChart, PieChart } from '@mui/x-charts'
 import React from 'react'
 import './Dashboard.css'
+import { DataGrid } from '@mui/x-data-grid'
 
 const Dashboard = () => {
+
     return (
-        <Grid container spacing={4} sx={{ marginTop: 8 }}>
+        <Grid container spacing={4} sx={{ marginTop: 0.5 }}>
             <Grid item xs={12} lg={8}>
                 <h2 className='dashboard__title'>
                     Trades
                 </h2>
-                <Table >
-                    <TableHead>
-                        <TableRow>
-                            <TableCell>Dessert (100g serving)</TableCell>
-                            <TableCell align="right">Calories</TableCell>
-                            <TableCell align="right">Fat&nbsp;(g)</TableCell>
-                            <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-                            <TableCell align="right">Protein&nbsp;(g)</TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        <TableRow>
-                        <TableCell component="th" scope="row">
-                            Hello
-                        </TableCell>
-                        <TableCell align="right">10</TableCell>
-                        <TableCell align="right">2</TableCell>
-                        <TableCell align="right">2</TableCell>
-                        <TableCell align="right">5</TableCell>
-                        </TableRow>
-                        <TableRow>
-                        <TableCell component="th" scope="row">
-                            Hello
-                        </TableCell>
-                        <TableCell align="right">10</TableCell>
-                        <TableCell align="right">2</TableCell>
-                        <TableCell align="right">2</TableCell>
-                        <TableCell align="right">5</TableCell>
-                        </TableRow>
-                        <TableRow>
-                        <TableCell component="th" scope="row">
-                            Hello
-                        </TableCell>
-                        <TableCell align="right">10</TableCell>
-                        <TableCell align="right">2</TableCell>
-                        <TableCell align="right">2</TableCell>
-                        <TableCell align="right">5</TableCell>
-                        </TableRow>
-                        <TableRow>
-                        <TableCell component="th" scope="row">
-                            Hello
-                        </TableCell>
-                        <TableCell align="right">10</TableCell>
-                        <TableCell align="right">2</TableCell>
-                        <TableCell align="right">2</TableCell>
-                        <TableCell align="right">5</TableCell>
-                        </TableRow>
-                        <TableRow>
-                        <TableCell component="th" scope="row">
-                            Hello
-                        </TableCell>
-                        <TableCell align="right">10</TableCell>
-                        <TableCell align="right">2</TableCell>
-                        <TableCell align="right">2</TableCell>
-                        <TableCell align="right">5</TableCell>
-                        </TableRow>
-                    </TableBody>
-                </Table>
+                <Box sx={{ overflow: "auto" }}>
+                    <Box sx={{ width: "100%", display: "table", tableLayout: "fixed" }}>
+                        <Table >
+                            <TableHead>
+                                <TableRow>
+                                    <TableCell>Dessert (100g serving)</TableCell>
+                                    <TableCell align="right">Calories</TableCell>
+                                    <TableCell align="right">Fat&nbsp;(g)</TableCell>
+                                    <TableCell align="right">Carbs&nbsp;(g)</TableCell>
+                                    <TableCell align="right">Protein&nbsp;(g)</TableCell>
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>
+                                <TableRow>
+                                    <TableCell component="th" scope="row">
+                                        Hello
+                                    </TableCell>
+                                    <TableCell align="right">10</TableCell>
+                                    <TableCell align="right">2</TableCell>
+                                    <TableCell align="right">2</TableCell>
+                                    <TableCell align="right">5</TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell component="th" scope="row">
+                                        Hello
+                                    </TableCell>
+                                    <TableCell align="right">10</TableCell>
+                                    <TableCell align="right">2</TableCell>
+                                    <TableCell align="right">2</TableCell>
+                                    <TableCell align="right">5</TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell component="th" scope="row">
+                                        Hello
+                                    </TableCell>
+                                    <TableCell align="right">10</TableCell>
+                                    <TableCell align="right">2</TableCell>
+                                    <TableCell align="right">2</TableCell>
+                                    <TableCell align="right">5</TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell component="th" scope="row">
+                                        Hello
+                                    </TableCell>
+                                    <TableCell align="right">10</TableCell>
+                                    <TableCell align="right">2</TableCell>
+                                    <TableCell align="right">2</TableCell>
+                                    <TableCell align="right">5</TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell component="th" scope="row">
+                                        Hello
+                                    </TableCell>
+                                    <TableCell align="right">10</TableCell>
+                                    <TableCell align="right">2</TableCell>
+                                    <TableCell align="right">2</TableCell>
+                                    <TableCell align="right">5</TableCell>
+                                </TableRow>
+                            </TableBody>
+                        </Table>
+                    </Box>
+                </Box>
+
             </Grid>
             <Grid item xs={12} lg={4}>
-            <h2 className='dashboard__title'>
+                <h2 className='dashboard__title'>
                     Securities
                 </h2>
                 <br />
@@ -87,88 +94,92 @@ const Dashboard = () => {
                     ]}
                 />
             </Grid>
-            <Grid item xs={6}>
-            <h2 className='dashboard__title'>
+            <Grid item lg={6}>
+                <h2 className='dashboard__title'>
                     Books
                 </h2>
-                <BarChart 
+                <BarChart
                     xAxis={[
                         {
-                          id: 'barCategories',
-                          data: ['Government', 'Corporate', 'bar C'],
-                          scaleType: 'band',
+                            id: 'barCategories',
+                            data: ['Government', 'Corporate', 'bar C'],
+                            scaleType: 'band',
                         },
-                      ]}
-                      series={[
+                    ]}
+                    series={[
                         {
-                          data: [2, 5, 3],
+                            data: [2, 5, 3],
                         },
-                      ]}
-                      height={400}
+                    ]}
+                    height={400}
                 />
             </Grid>
-            <Grid item xs={6}>
-            <h2 className='dashboard__title'>
+            <Grid item lg={6}>
+                <h2 className='dashboard__title'>
                     Security
                 </h2>
-            <Table >
-                    <TableHead>
-                        <TableRow>
-                            <TableCell>Dessert (100g serving)</TableCell>
-                            <TableCell align="right">Calories</TableCell>
-                            <TableCell align="right">Fat&nbsp;(g)</TableCell>
-                            <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-                            <TableCell align="right">Protein&nbsp;(g)</TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        <TableRow>
-                        <TableCell component="th" scope="row">
-                            Hello
-                        </TableCell>
-                        <TableCell align="right">10</TableCell>
-                        <TableCell align="right">2</TableCell>
-                        <TableCell align="right">2</TableCell>
-                        <TableCell align="right">5</TableCell>
-                        </TableRow>
-                        <TableRow>
-                        <TableCell component="th" scope="row">
-                            Hello
-                        </TableCell>
-                        <TableCell align="right">10</TableCell>
-                        <TableCell align="right">2</TableCell>
-                        <TableCell align="right">2</TableCell>
-                        <TableCell align="right">5</TableCell>
-                        </TableRow>
-                        <TableRow>
-                        <TableCell component="th" scope="row">
-                            Hello
-                        </TableCell>
-                        <TableCell align="right">10</TableCell>
-                        <TableCell align="right">2</TableCell>
-                        <TableCell align="right">2</TableCell>
-                        <TableCell align="right">5</TableCell>
-                        </TableRow>
-                        <TableRow>
-                        <TableCell component="th" scope="row">
-                            Hello
-                        </TableCell>
-                        <TableCell align="right">10</TableCell>
-                        <TableCell align="right">2</TableCell>
-                        <TableCell align="right">2</TableCell>
-                        <TableCell align="right">5</TableCell>
-                        </TableRow>
-                        <TableRow>
-                        <TableCell component="th" scope="row">
-                            Hello
-                        </TableCell>
-                        <TableCell align="right">10</TableCell>
-                        <TableCell align="right">2</TableCell>
-                        <TableCell align="right">2</TableCell>
-                        <TableCell align="right">5</TableCell>
-                        </TableRow>
-                    </TableBody>
-                </Table>
+                <Box sx={{ overflow: "auto" }}>
+                    <Box sx={{ width: "100%", display: "table", tableLayout: "fixed" }}>
+                        <Table >
+                            <TableHead>
+                                <TableRow>
+                                    <TableCell>Dessert (100g serving)</TableCell>
+                                    <TableCell align="right">Calories</TableCell>
+                                    <TableCell align="right">Fat&nbsp;(g)</TableCell>
+                                    <TableCell align="right">Carbs&nbsp;(g)</TableCell>
+                                    <TableCell align="right">Protein&nbsp;(g)</TableCell>
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>
+                                <TableRow>
+                                    <TableCell component="th" scope="row">
+                                        Hello
+                                    </TableCell>
+                                    <TableCell align="right">10</TableCell>
+                                    <TableCell align="right">2</TableCell>
+                                    <TableCell align="right">2</TableCell>
+                                    <TableCell align="right">5</TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell component="th" scope="row">
+                                        Hello
+                                    </TableCell>
+                                    <TableCell align="right">10</TableCell>
+                                    <TableCell align="right">2</TableCell>
+                                    <TableCell align="right">2</TableCell>
+                                    <TableCell align="right">5</TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell component="th" scope="row">
+                                        Hello
+                                    </TableCell>
+                                    <TableCell align="right">10</TableCell>
+                                    <TableCell align="right">2</TableCell>
+                                    <TableCell align="right">2</TableCell>
+                                    <TableCell align="right">5</TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell component="th" scope="row">
+                                        Hello
+                                    </TableCell>
+                                    <TableCell align="right">10</TableCell>
+                                    <TableCell align="right">2</TableCell>
+                                    <TableCell align="right">2</TableCell>
+                                    <TableCell align="right">5</TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell component="th" scope="row">
+                                        Hello
+                                    </TableCell>
+                                    <TableCell align="right">10</TableCell>
+                                    <TableCell align="right">2</TableCell>
+                                    <TableCell align="right">2</TableCell>
+                                    <TableCell align="right">5</TableCell>
+                                </TableRow>
+                            </TableBody>
+                        </Table>
+                    </Box>
+                </Box>
             </Grid>
         </Grid>
     )

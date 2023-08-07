@@ -16,7 +16,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   }));
 
 const Sidebar = ({ drawer, setDrawer }) => {
-    const theme = useTheme();
+    // const theme = useTheme();
     const list = () => (
         <Box
             sx={{ width: 250 }}

@@ -12,8 +12,7 @@ function App() {
   return (
     <BrowserRouter>
     <div className="App">
-      <Navbar drawer={drawer} setDrawer={setDrawer} />
-      <Sidebar drawer={drawer} setDrawer={setDrawer} />
+      <Navbar />
     <div className='container'>
       {/* <Dashboard /> */}
       <Trade />

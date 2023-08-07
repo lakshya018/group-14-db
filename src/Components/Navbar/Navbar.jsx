@@ -1,32 +1,43 @@
 import React, { useState } from 'react'
 import "./Navbar.css"
 import { Link } from 'react-router-dom';
-import { AppBar, Box, IconButton, Toolbar, Typography } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
 
-const Navbar = ({drawer, setDrawer}) => {
+const Navbar = () => {
+    const [showNavbar, setShowNavbar] = useState(false)
 
-    
+    const handleShowNavbar = () => {
+        setShowNavbar(!showNavbar)
+    }
     return (
-        <Box >
-      <AppBar position="fixed">
-        <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-            onClick={() => setDrawer(true)}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Bonds
-          </Typography>
-        </Toolbar>
-      </AppBar>
-    </Box>
+        <nav className="navbar">
+            <div className="container">
+                <div className="logo">
+                    Logo
+                </div>
+                <div className="menu-icon" onClick={handleShowNavbar}>
+                    <i className='fa fa-bars'></i>
+                </div>
+                <div className={`nav-elements  ${showNavbar && 'active'}`}>
+                    <ul>
+                        <li>
+                            <Link to="/">Home</Link>
+                        </li>
+                        <li>
+                            <Link to="/blog">Blog</Link>
+                        </li>
+                        <li>
+                            <Link to="/projects">Projects</Link>
+                        </li>
+                        <li>
+                            <Link to="/about">About</Link>
+                        </li>
+                        <li>
+                            <Link to="/contact">Contact</Link>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
 
     );
 }

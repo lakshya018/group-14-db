@@ -5,14 +5,17 @@
     align-items: center;
     justify-content: center;
     padding: 2rem;
+    color: #ffffff;
 }
 
 .trade__container{
     max-width: 800px;
     width: 100%;
+    color: #ffffff;
 }
 
 .trade__title{
     padding: 1rem 2rem;
     font-size: 28px;
+    color: #ffffff;
 }

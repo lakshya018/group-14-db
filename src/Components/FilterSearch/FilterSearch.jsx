@@ -16,7 +16,16 @@ const FilterSearch = ({ data }) => {
       {
         data.length!==0?
         <>
-        <Typography variant="h4" component="div" sx={{ mb: 1 }}>
+        <Typography variant="h4"
+        component="div"
+        className="bond-cards-title"
+        sx={{
+          textAlign: "center",
+          marginTop: "70px",
+          fontWeight: "bold",
+          color: "white",
+          textShadow: "-1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black",
+        }}>
         You Searched For
       </Typography>
       <Grid container spacing={3}>

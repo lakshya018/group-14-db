@@ -3,6 +3,9 @@ import "./Navbar.css"
 import { Link } from 'react-router-dom';
 import { useAuth0 } from "@auth0/auth0-react";
 
+const logoImageUrl = 'https://pbs.twimg.com/profile_images/1257735526066589697/6HfW0Ysi_400x400.jpg';
+
+
 const Navbar = () => {
 
     const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
@@ -15,9 +18,9 @@ const Navbar = () => {
     return (
         <nav className="navbar">
             <div className="container">
-                <div className="logo">
-                    Stonks App
-                </div>
+            <a href="#" className="logo">
+            <img src={logoImageUrl} alt="Logo" style={{ height: '15%', width: '15%', borderRadius: '10px' }} />
+          </a>
                 <div className="menu-icon" onClick={handleShowNavbar}>
                     <i className='fa fa-bars'></i>
                 </div>
@@ -34,6 +37,9 @@ const Navbar = () => {
                                 <li>
                                     <Link to="/trades">Trades</Link>
                                 </li>
+                                <li>
+                            <Link to="/pmi">Post Maturity Issues</Link>
+                        </li>
                             </>
                             :
                             <></>
@@ -43,9 +49,7 @@ const Navbar = () => {
                         {/* <li>
                             <Link to="/about">About</Link>
                         </li> */}
-                        <li>
-                            <Link to="/pmi">Post Maturity Issues</Link>
-                        </li>
+                       
                         {
                             isAuthenticated ?
                                 <li>

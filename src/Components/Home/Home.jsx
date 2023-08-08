@@ -73,7 +73,7 @@ const Home = () => {
                 isAuthenticated ?
                     <>
                         <div className='home-container'>
-                            <h3 className='heading-name'>Hi {user.name}, welcome to the Stonks App</h3>
+                            <h3 className='heading-name'>Hi {user.name}, Welcome To XBond App</h3>
                             <div className="search-container">
                                 <Select
                                     sx={{
@@ -104,7 +104,7 @@ const Home = () => {
                     </>
                     :
                     <div className="home-container">
-                        <h3 className='heading-name'>Hi, welcome to the Stonks app. Login to see the status of the bonds</h3>
+                        <h3 className='heading-name'>Welcome To XBond App, Please Login to Continue</h3>
                     </div>
 
 

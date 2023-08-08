@@ -1,0 +1,70 @@
+.bond-cards-container {
+  padding: 16px;
+}
+
+.bond-cards-title {
+  margin-bottom: 16px;
+  color: #2f234f;
+}
+
+.bond-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  transition: box-shadow 0.3s ease;
+}
+
+.bond-card:hover {
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.issuer {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #2f234f;
+}
+
+.isin {
+  color: #666;
+}
+
+.face-value {
+  margin-top: 12px;
+  color: #2f234f;
+}
+
+.details {
+  margin-top: 12px;
+}
+
+.type-label {
+  color: #999;
+}
+
+.type-value {
+  font-weight: 500;
+  color: #2f234f;
+}
+
+.maturity-date-label {
+  color: #999;
+}
+
+.maturity-date-value {
+  font-weight: 500;
+  color: #2f234f;
+}
+
+.load-more-button {
+  border: none;
+  outline: none;
+  background-color: teal;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  color: white;
+  margin-top: 16px;
+}
+
+.load-more-button:hover {
+  background-color: #008080;
+}

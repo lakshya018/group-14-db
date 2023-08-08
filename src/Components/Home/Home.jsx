@@ -27,11 +27,8 @@ const Home = () => {
         <div className='home-container'>
             {
                 isAuthenticated?
-                <h3 className='heading-name'>Hi {user.name}, welcome to the Bond App</h3>
-                :
-                <></>
-            }
-
+                <>
+                <h3 className='heading-name'>Hi {user.name}, welcome to the Stonks App</h3>
             <div className="search-container">
                 <Select
                     sx={{
@@ -56,6 +53,12 @@ const Home = () => {
             <div className="search-btn">
                 <Button variant='contained'>Search</Button>
             </div>
+                </>
+                :
+                <h3 className='heading-name'>Hi, welcome to the Stonks app. Login to see the status of the bonds</h3>
+            }
+
+            
 
 
         </div>

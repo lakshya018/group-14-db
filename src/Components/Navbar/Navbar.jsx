@@ -16,7 +16,7 @@ const Navbar = () => {
         <nav className="navbar">
             <div className="container">
                 <div className="logo">
-                    Logo
+                    Stonks App
                 </div>
                 <div className="menu-icon" onClick={handleShowNavbar}>
                     <i className='fa fa-bars'></i>

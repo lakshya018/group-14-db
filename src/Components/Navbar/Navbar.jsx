@@ -18,9 +18,11 @@ const Navbar = () => {
     return (
         <nav className="navbar">
             <div className="container">
-            <a href="" className="logo">
-            <img src={logoImageUrl} alt="Logo" style={{ height: '15%', width: '15%', borderRadius: '10px' }} />
-          </a>
+                <Link to="/">
+                    <button className="logo">
+                        <img src={logoImageUrl} alt="Logo" />
+                    </button>
+                </Link>
                 <div className="menu-icon" onClick={handleShowNavbar}>
                     <i className='fa fa-bars'></i>
                 </div>
@@ -29,7 +31,7 @@ const Navbar = () => {
                         <li>
                             <Link to="/">Home</Link>
                         </li>
-                         {isAuthenticated ?
+                        {isAuthenticated ?
                             <>
                                 <li>
                                     <Link to="/securities">Securities</Link>
@@ -38,8 +40,8 @@ const Navbar = () => {
                                     <Link to="/trades">Trades</Link>
                                 </li>
                                 <li>
-                            <Link to="/pmi">Post Maturity Issues</Link>
-                        </li>
+                                    <Link to="/pmi">Post Maturity Issues</Link>
+                                </li>
                             </>
                             :
                             <></>
@@ -49,7 +51,7 @@ const Navbar = () => {
                         {/* <li>
                             <Link to="/about">About</Link>
                         </li> */}
-                       
+
                         {
                             isAuthenticated ?
                                 <li>

@@ -2,7 +2,6 @@ import { Box, Grid, Table, TableBody, TableCell, TableHead, TableRow } from '@mu
 import { BarChart, PieChart } from '@mui/x-charts'
 import React from 'react'
 import './Dashboard.css'
-import { DataGrid } from '@mui/x-data-grid'
 
 const Dashboard = () => {
 

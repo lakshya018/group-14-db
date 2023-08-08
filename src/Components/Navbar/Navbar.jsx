@@ -12,7 +12,7 @@ const Navbar = () => {
         <nav className="navbar">
             <div className="navbar__container">
                 <div className="logo">
-                    Logo
+                    Bond App
                 </div>
                 <div className="menu-icon" onClick={handleShowNavbar}>
                     <i className='fa fa-bars'></i>
@@ -23,10 +23,10 @@ const Navbar = () => {
                             <Link to="/">Home</Link>
                         </li>
                         <li>
-                            <Link to="/blog">Blog</Link>
+                            <Link to="/trade">Trades</Link>
                         </li>
                         <li>
-                            <Link to="/projects">Projects</Link>
+                            <Link to="/projects">Securities</Link>
                         </li>
                         <li>
                             <Link to="/about">About</Link>

@@ -49,7 +49,7 @@ const Home = () => {
                                 </Select>
 
 
-                                <input type="search" placeholder={placeHolder} className='search-bar' onChange={handleChange} onKeyDown={handleSearch} />
+                                <input type="search" placeholder={placeHolder} className='search-bar' onChange={handleChange} />
                             </div>
 
 

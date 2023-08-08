@@ -4,10 +4,9 @@ import Navbar from './Components/Navbar/Navbar';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 // import { useState } from 'react';
 // import Dashboard from './Components/Dashboard/Dashboard';
-import Trade from './Components/Trade/Trade';
 import Dashboard from './Components/Dashboard/Dashboard';
 import Login from './Components/Login/Login';
-import BondCards from './Components/BondCards/BondCards';
+import Securities from './Components/Securities/Securities';
 
 function App() {
   // const [drawer, setDrawer] = useState(false)
@@ -17,12 +16,11 @@ function App() {
     <div className="App">
       <Navbar />
     <div className='container'>
-      <BondCards />
-    {/* <Routes>
+    <Routes>
         <Route exact path='/' element={<Dashboard />} />
-        <Route exact path='/trade' element={<Trade />} />
+        <Route exact path='/securities' element={<Securities />} />
         <Route exact path='/login' element={<Login />} />
-      </Routes> */}
+      </Routes>
     </div>
     </div>
     </BrowserRouter>

@@ -179,7 +179,7 @@ const BondCards = () => {
         </Grid>
         <Grid xs={12}>
             <Box display='flex' justifyContent='center' alignItems='center' marginTop={2}>
-            <Button variant='outlined' endIcon={<KeyboardArrowDownIcon />}>
+            <Button variant='outlined' endIcon={<KeyboardArrowDownIcon />} href='/securities'>
                 Load More
             </Button>
             </Box>

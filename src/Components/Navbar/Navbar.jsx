@@ -40,11 +40,11 @@ const Navbar = () => {
 
                         }
 
-                        <li>
+                        {/* <li>
                             <Link to="/about">About</Link>
-                        </li>
+                        </li> */}
                         <li>
-                            <Link to="/contact">Contact</Link>
+                            <Link to="/pmi">Post Maturity Issues</Link>
                         </li>
                         {
                             isAuthenticated ?

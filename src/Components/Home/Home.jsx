@@ -1,8 +1,8 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Select, MenuItem, Button } from "@mui/material";
 import "./Home.css"
 import { useAuth0 } from '@auth0/auth0-react';
-import appContext from '../../context/appContext';
+
 import BondCards from '../BondCards/BondCards';
 import FilterSearch from '../FilterSearch/FilterSearch';
 
@@ -12,19 +12,14 @@ const Home = () => {
     const [searchText, setSearchText] = useState(""); // eslint-disable-line
     const { isAuthenticated, user } = useAuth0();
     const [filterSearch, setFilterSearch] = useState([]);
-    
+    const [securities, setSecurities] = useState([]);
 
-    const context = useContext(appContext);
-    const { securities, getSecurities } = context;;
+   
 
     const handleChange = (e) => {
         setSearchText(e.target.value);
     }
 
-    useEffect(()=>{
-        getSecurities();
-        // eslint-disable-next-line
-    },[])
 
     const handleSelect = (e) => {
         // e.preventDefault();
@@ -36,8 +31,12 @@ const Home = () => {
         }
     }
 
-    const handleSearch = (e) => {
-        
+    const handleSearch = async (e) => {
+        const res = await fetch(`https://mybond-production.up.railway.app/api/securities`);
+        const data = await res.json();
+        setSecurities(data);
+
+
         if (e.key === "Enter" || e.type === "click") {
 
             // console.log(securities)

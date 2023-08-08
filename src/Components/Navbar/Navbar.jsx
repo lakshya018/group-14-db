@@ -18,7 +18,7 @@ const Navbar = () => {
     return (
         <nav className="navbar">
             <div className="container">
-            <a href="#" className="logo">
+            <a href="" className="logo">
             <img src={logoImageUrl} alt="Logo" style={{ height: '15%', width: '15%', borderRadius: '10px' }} />
           </a>
                 <div className="menu-icon" onClick={handleShowNavbar}>

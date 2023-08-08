@@ -26,12 +26,20 @@ const Navbar = () => {
                         <li>
                             <Link to="/">Home</Link>
                         </li>
-                         <li>
-                            <Link to="/securities">Securities</Link>
-                        </li>
-                        <li>
-                            <Link to="/trades">Trades</Link>
-                        </li>
+                         {isAuthenticated ?
+                            <>
+                                <li>
+                                    <Link to="/securities">Securities</Link>
+                                </li>
+                                <li>
+                                    <Link to="/trades">Trades</Link>
+                                </li>
+                            </>
+                            :
+                            <></>
+
+                        }
+
                         <li>
                             <Link to="/about">About</Link>
                         </li>

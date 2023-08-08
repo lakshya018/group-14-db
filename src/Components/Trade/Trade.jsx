@@ -1,48 +1,65 @@
 import { DataGrid, GridToolbar } from '@mui/x-data-grid';
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
 import './Trade.css'
 
 const Trade = () => {
+    const [tradesData, setTradesData] = useState([])
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const res = await axios.get('https://mybond-production.up.railway.app/api/trades')
+            // console.log(res)
+            const data = res.data.map(({ _id, TradeDate,SettlementDate, ...rest }) => ({
+                id: _id,
+                TradeDate: new Date(TradeDate).toLocaleDateString(),
+                SettlementDate: new Date(SettlementDate).toLocaleDateString(),
+                ...rest,
+            }))
+            // console.log(data)
+            setTradesData(data)
+        }
+        fetchData()
+    }, [])
+
     const columns = [
         {
-            field: 'first_name',
-            headerName: 'first name',
+            field: 'CounterpartyId',
+            headerName: 'Counterparty Id',
+            width: 200,
         },
         {
-            field: 'first_name',
-            headerName: 'first name',
+            field: 'SecurityId',
+            headerName: 'Security Id',
+            width: 200,
         },
         {
-            field: 'first_name',
-            headerName: 'first name',
+            field: 'Quantity',
+            headerName: 'Quantity',
+            width: 80,
         },
         {
-            field: 'first_name',
-            headerName: 'first name',
+            field: 'Price',
+            headerName: 'Price',
+            width: 100,
+        },
+        {
+            field: 'TradeDate',
+            headerName: 'Trade Date',
+            width: 100,
+        },
+        {
+            field: 'SettlementDate',
+            headerName: 'Settlement Date',
+            width: 120,
+        },
+        {
+            field: 'Status',
+            headerName: 'Status',
+            width: 100,
         },
     ]
-    const rows = [
-        {
-            first_name: 'Hello',
-            id: 1,
-        },
-        {
-            first_name: 'Hello',
-            id: 2,
-        },
-        {
-            first_name: 'Hello',
-            id: 3,
-        },
-        {
-            first_name: 'Hello',
-            id: 4,
-        },
-        {
-            first_name: 'Hello',
-            id: 5,
-        },
-    ]
+    
 
     return (
         <div>
@@ -53,7 +70,7 @@ const Trade = () => {
                 <div className="trade__container">
                     <DataGrid
                         columns={columns}
-                        rows={rows}
+                        rows={tradesData}
                         slots={{ toolbar: GridToolbar }}
                         initialState={{
                             pagination: { paginationModel: { pageSize: 25 } }

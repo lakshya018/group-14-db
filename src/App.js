@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Dashboard from './Components/Dashboard/Dashboard';
 import Login from './Components/Login/Login';
 import Securities from './Components/Securities/Securities';
+import Trade from './Components/Trade/Trade';
 
 function App() {
   // const [drawer, setDrawer] = useState(false)
@@ -18,6 +19,7 @@ function App() {
     <div className='container'>
     <Routes>
         <Route exact path='/' element={<Dashboard />} />
+        <Route exact path='/trade' element={<Trade />} />
         <Route exact path='/securities' element={<Securities />} />
         <Route exact path='/login' element={<Login />} />
       </Routes>

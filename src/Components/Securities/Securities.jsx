@@ -71,11 +71,11 @@ const Securities = () => {
 
     return (
         <div>
-            <h2 className='trade__title'>
+            <h2 className='securities__title'>
                 Securities
             </h2>
-            <div className='trade__body'>
-                <div className="trade__container">
+            <div className='securities__body'>
+                <div className="securities__container">
                     <Modal
                         open={detailedView !== false}
                         onClose={() => setDetailedView(false)}

@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react'
 import {
   Card,
   CardContent,
@@ -8,35 +7,20 @@ import {
   Divider,
   Stack,
   Container,
-  Button,
-  Box,
 } from '@mui/material';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
-const BondCards = () => {
-  const [securities, setSecurities] = useState([]);
-
-  useEffect(() => {
-    const fetchSecurities = async () => {
-      try {
-        const response = await axios.get('https://mybond-production.up.railway.app/api/securities');
-        const data = response.data.slice(0, 4); // Limit to 4 recent records
-        setSecurities(data);
-      } catch (error) {
-        console.error('Error fetching securities:', error);
-      }
-    };
-
-    fetchSecurities();
-  }, []);
-
+const FilterSearch = ({ data }) => {
   return (
+
     <Container sx={{ py: 2 }}>
-      <Typography variant="h4" component="div" sx={{ mb: 1 }}>
-        Bonds Calendar
+      {
+        data.length!==0?
+        <>
+        <Typography variant="h4" component="div" sx={{ mb: 1 }}>
+        You Searched For
       </Typography>
       <Grid container spacing={3}>
-        {securities.map((security) => (
+        {data.map((security) => (
           <Grid item md={6} key={security._id}>
             <Card variant="outlined">
               <CardContent>
@@ -74,16 +58,14 @@ const BondCards = () => {
             </Card>
           </Grid>
         ))}
-        <Grid xs={12}>
-          <Box display="flex" justifyContent="center" alignItems="center" marginTop={2}>
-            <Button variant="outlined" endIcon={<KeyboardArrowDownIcon />}>
-              Load More
-            </Button>
-          </Box>
-        </Grid>
       </Grid>
+        </>
+        :
+        <></>
+      }
+      
     </Container>
-  );
-};
+  )
+}
 
-export default BondCards;
+export default FilterSearch;

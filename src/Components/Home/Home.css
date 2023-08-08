@@ -1,0 +1,37 @@
+.home-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 35rem;
+    background:linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("./desktop-wallpaper-stonks.jpg");
+    /* background-image:  , linear-gradient(rgb(0, 0, 0),rgba(0,0,0,0.5)); */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+
+}
+.heading-name{
+    
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 2rem;
+    /* align-items: start; */
+    
+}
+.select-option{
+    cursor: pointer;
+}
+.select-option, .search-bar {
+    padding: 2rem;
+   font-size: 1rem;
+   height: 3rem;
+    border: none;
+    outline: none;
+    background-color: white;
+    color: black;
+}
+
+.search-btn{
+    margin: 1rem;
+}

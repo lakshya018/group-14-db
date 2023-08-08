@@ -40,12 +40,13 @@ const Trade = () => {
         let res;
         if (field === 'SecurityId') {
             res = await axios.get(`https://mybond-production.up.railway.app/api/securities/${value}`)
+            setModalData(res.data)
         }
         else if (field === 'CounterpartyId') {
             res = await axios.get(`https://mybond-production.up.railway.app/api/counterparties/${value}`)
+            setModalData(res.data)
         }
         // console.log(res.data)
-        setModalData(res.data)
     }
 
     const columns = [

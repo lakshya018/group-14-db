@@ -6,7 +6,7 @@ import './PostMaturityIssues.css';
 
 const PostMaturityIssues = () => {
   const [postMaturityIssuesData, setPostMaturityIssuesData] = useState([]);
-  const [securityData, setSecurityData] = useState(false);
+  const [securityData, setSecurityData] = useState(false); // eslint-disable-line
 
  const handleStatusUpdate = async (securityId, newStatus) => {
   try {

@@ -29,7 +29,7 @@ const Navbar = () => {
                         <li>
                             <Link to="/">Home</Link>
                         </li>
-                         {isAuthenticated ?
+                        {isAuthenticated ?
                             <>
                                 <li>
                                     <Link to="/securities">Securities</Link>
@@ -49,7 +49,7 @@ const Navbar = () => {
                         {/* <li>
                             <Link to="/about">About</Link>
                         </li> */}
-                       
+
                         {
                             isAuthenticated ?
                                 <li>

@@ -3,16 +3,6 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './PostMaturityIssues.css';
 
-const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 400,
-  bgcolor: 'background.paper',
-  boxShadow: 24,
-  p: 4,
-};
 
 const handleStatusUpdate = async (securityId, newStatus) => {
   try {
@@ -29,7 +19,7 @@ const handleStatusUpdate = async (securityId, newStatus) => {
 
 const PostMaturityIssues = () => {
   const [postMaturityIssuesData, setPostMaturityIssuesData] = useState([]);
-  const [securityData, setSecurityData] = useState(false);
+  const [securityData, setSecurityData] = useState(false); // eslint-disable-line
 
   useEffect(() => {
     const fetchData = async () => {
@@ -57,7 +47,7 @@ const PostMaturityIssues = () => {
       const data = securitiesData.map(({ _id, MaturityDate,Status, ...rest }) => {
         const maturityDate = new Date(MaturityDate);
         const trade = tradesData.find((trade) => trade.SecurityId === _id);
-        const reason = trade && trade.Status === 'Failed' ? 'Failed Trade' : ((maturityDate < currentDate && Status!='Inactive' ) ? 'Active after Maturity' : '');
+        const reason = trade && trade.Status === 'Failed' ? 'Failed Trade' : ((maturityDate < currentDate && Status !== 'Inactive' ) ? 'Active after Maturity' : '');
         return {
           id: _id,
           MaturityDate: new Date(MaturityDate).toLocaleDateString(),

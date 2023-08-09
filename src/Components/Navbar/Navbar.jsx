@@ -18,9 +18,9 @@ const Navbar = () => {
     return (
         <nav className="navbar">
             <div className="container">
-            <a href="#" className="logo">
+            <Link to ="/" className="logo">
             <img src={logoImageUrl} alt="Logo" style={{ height: '15%', width: '15%', borderRadius: '10px' }} />
-          </a>
+          </Link>
                 <div className="menu-icon" onClick={handleShowNavbar}>
                     <i className='fa fa-bars'></i>
                 </div>
@@ -38,7 +38,7 @@ const Navbar = () => {
                                     <Link to="/trades">Trades</Link>
                                 </li>
                                 <li>
-                            <Link to="/pmi">Post Maturity Issues</Link>
+                            <Link to="/pmi">Flagged Redemptions</Link>
                         </li>
                             </>
                             :

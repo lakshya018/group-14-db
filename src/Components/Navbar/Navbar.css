@@ -13,6 +13,7 @@
   background-color: #2f234f;
   color: #fff;
   position: relative;
+  z-index: 2;
 }
 
 .logo {

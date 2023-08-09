@@ -3,39 +3,78 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './PostMaturityIssues.css';
 
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  boxShadow: 24,
+  p: 4,
+};
+
+const handleStatusUpdate = async (securityId, newStatus) => {
+  try {
+    await axios.put(`https://mybond-production.up.railway.app/api/securities/${securityId}`, { Status: newStatus });
+    // Refresh the data after the update
+  //   const updatedData = postMaturityIssuesData.map((security) =>
+  //     security.id === securityId ? { ...security, Status: newStatus } : security
+  //   );
+  //   setPostMaturityIssuesData(updatedData);
+  } catch (error) {
+    console.error('Error updating status:', error);
+  }
+};
+
 const PostMaturityIssues = () => {
   const [postMaturityIssuesData, setPostMaturityIssuesData] = useState([]);
+  const [securityData, setSecurityData] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await axios.get('https://mybond-production.up.railway.app/api/securities');
+      const securitiesResponse = await axios.get('https://mybond-production.up.railway.app/api/securities');
+      const tradesResponse = await axios.get('https://mybond-production.up.railway.app/api/trades');
       const currentDate = new Date();
 
-      const data = res.data.filter(({ MaturityDate, Status }) => {
+      const securitiesData = securitiesResponse.data;
+      const tradesData = tradesResponse.data;
+
+      // Find securities with active status and maturity date in the past
+      // const data = securitiesData.filter(({ MaturityDate, Status }) => {
+      //   const maturityDate = new Date(MaturityDate);
+      //   return Status === 'Active' && maturityDate < currentDate;
+      // }).map(({ _id, MaturityDate, ...rest }) => {
+      //   const trade = tradesData.find((trade) => trade.SecurityId === _id);
+      //   const reason = trade && trade.Status === 'Failed' ? 'Failed Trade' : 'Active after Maturity';
+      //   return {
+      //     id: _id,
+      //     MaturityDate: new Date(MaturityDate).toLocaleDateString(),
+      //     ...rest,
+      //     Issue: reason,
+      //   };
+      // });
+      const data = securitiesData.map(({ _id, MaturityDate,Status, ...rest }) => {
         const maturityDate = new Date(MaturityDate);
-        return Status === 'Active' && maturityDate < currentDate;
-      }).map(({ _id, MaturityDate, ...rest }) => ({
-        id: _id,
-        MaturityDate: new Date(MaturityDate).toLocaleDateString(),
-        ...rest,
-      }));
+        const trade = tradesData.find((trade) => trade.SecurityId === _id);
+        const reason = trade && trade.Status === 'Failed' ? 'Failed Trade' : ((maturityDate < currentDate && Status!='Inactive' ) ? 'Active after Maturity' : '');
+        return {
+          id: _id,
+          MaturityDate: new Date(MaturityDate).toLocaleDateString(),
+          Status: Status,
+          ...rest,
+          Issue: reason,
+        };
+      }).filter((security) => security.Issue !== '');
 
       setPostMaturityIssuesData(data);
     };
     fetchData();
   }, []);
 
-  const handleStatusUpdate = async (securityId, newStatus) => {
-    try {
-      await axios.put(`https://mybond-production.up.railway.app/api/securities/${securityId}`, { Status: newStatus });
-      // Refresh the data after the update
-      const updatedData = postMaturityIssuesData.map((security) =>
-        security.id === securityId ? { ...security, Status: newStatus } : security
-      );
-      setPostMaturityIssuesData(updatedData);
-    } catch (error) {
-      console.error('Error updating status:', error);
-    }
+  const handleSecurityIdClick = async (securityId) => {
+    const res = await axios.get(`https://mybond-production.up.railway.app/api/securities/${securityId}`);
+    setSecurityData(res.data);
   };
 
   const columns = [
@@ -73,6 +112,13 @@ const PostMaturityIssues = () => {
           </select>
         );
       },
+
+    
+    },
+    {
+      field: 'Issue',
+      headerName: 'Issue',
+      width: 180,
     },
   ];
 
@@ -94,9 +140,41 @@ const PostMaturityIssues = () => {
                 printOptions: { disableToolbarButton: true },
               },
             }}
+            onCellClick={(cell) => handleSecurityIdClick(cell.row.id)}
           />
         </div>
       </div>
+      {/* <Modal
+        open={securityData !== false}
+        onClose={() => setSecurityData(false)}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <Typography id="modal-modal-title" variant="h6" component="h2" fontWeight='bold'>
+            Security Details
+          </Typography>
+          <Divider />
+          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            ISIN: {securityData.ISIN}
+            <br />
+            CUSIP: {securityData.CUSIP}
+            <br />
+            Issuer: {securityData.Issuer}
+            <br />
+            MaturityDate: {new Date(securityData.MaturityDate).toLocaleDateString()}
+            <br />
+            Coupon: {securityData.Coupon}
+            <br />
+            Type: {securityData.Type}
+            <br />
+            FaceValue: Rs {securityData.FaceValue}
+            <br />
+            Status: {securityData.Status}
+            <br />
+          </Typography>
+        </Box>
+      </Modal> */}
     </div>
   );
 };
